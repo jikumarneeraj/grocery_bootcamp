@@ -29,6 +29,8 @@
                                     {{product.man_date}}
                                 </div>
                             </p>
+                            {% if product.quantity >0 %}
+                                
                             <div class="quantity-input">
                                 <form action="{{url_for('add_to_cart',product_id=product.id)}}" 
                                 method="POST" class="form">
@@ -40,6 +42,12 @@
                                     <input type="submit" value="Add to Cart" class="btn btn-success">
                                 </form>
                             </div>
+                            {% else %}
+                                <button disabled="disabled" class="btn btn-outline-danger">
+                                    <i class="fas fa-times"></i>
+                                    Out of Stock
+                                </button>
+                            {% endif %}
                         </div>
                     </div>
                 {% endif %}
